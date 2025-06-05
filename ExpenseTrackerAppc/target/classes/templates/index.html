@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <p class="subtitle">Track your expenses easily</p>
+
+        <!-- Display error message if expense not found -->
+        <div th:if="${param.error}" class="error-message">
+            <p th:text="${param.error == 'ExpenseNotFound'} ? 'Expense not found!' : 'An error occurred.'" style="color: red;"></p>
+        </div>
+
+        <div class="expense-list">
+            <div th:each="expense : ${expenses}" class="expense-card">
+                <h3 th:text="${expense.description}"></h3>
+                <p>Amount: $<span th:text="${expense.amount}"></span></p>
+                <p>Category: <span th:text="${expense.category}"></span></p>
+                <div class="expense-details">
+                    <span th:text="'Date: ' + ${expense.date}"></span>
+                </div>
+                <a th:href="@{/delete/{id}(id=${expense.id})}" class="delete-btn">Delete</a>
+            </div>
+        </div>
+
+        <form th:action="@{/addExpense}" th:object="${newExpense}" method="post" class="expense-form">
+            <div th:if="${#fields.hasErrors('*')}" class="error-message">
+                <span th:each="err : ${#fields.errors('*')}" th:text="${err}" style="color: red; display: block;"></span>
+            </div>
+
+            <input type="text" th:field="*{description}" placeholder="Description" />
+            <div th:if="${#fields.hasErrors('description')}" class="error-message">
+                <span th:errors="*{description}" style="color: red;"></span>
+            </div>
+
+            <input type="number" step="0.01" th:field="*{amount}" placeholder="Amount" />
+            <div th:if="${#fields.hasErrors('amount')}" class="error-message">
+                <span th:errors="*{amount}" style="color: red;"></span>
+            </div>
+
+            <input type="text" th:field="*{category}" placeholder="Category" />
+            <div th:if="${#fields.hasErrors('category')}" class="error-message">
+                <span th:errors="*{category}" style="color: red;"></span>
+            </div>
+
+            <input type="date" th:field="*{date}" />
+            <div th:if="${#fields.hasErrors('date')}" class="error-message">
+                <span th:errors="*{date}" style="color: red;"></span>
+            </div>
+
+            <button type="submit">Add Expense</button>
+        </form>
+    </div>
+</body>
+</html>

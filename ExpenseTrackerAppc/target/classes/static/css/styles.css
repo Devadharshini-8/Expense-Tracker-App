@@ -1,0 +1,113 @@
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.expense-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.expense-card {
+    background-color: #fff;
+    border: 2px solid #e6d8ff;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.expense-card h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.expense-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.expense-details {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #999;
+}
+
+.expense-details span {
+    display: block;
+}
+
+.delete-btn {
+    display: inline-block;
+    background-color: #e6d8ff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.expense-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.expense-form input {
+    padding: 10px;
+    border: 2px solid #e6d8ff;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.expense-form button {
+    background-color: #e6d8ff;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.expense-form button:hover {
+    background-color: #d1c4e9;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
